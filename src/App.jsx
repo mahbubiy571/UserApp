@@ -59,7 +59,7 @@ function App() {
             <li className="user-item" key={user.id}>
               <h3 className="user-name">{user.name}</h3>
               <p className="user-email">{user.email}</p>
-              <p className="user-age">{user.age} age</p>
+              <p className="user-age my-1">{user.age} age</p>
               <button className="delete-btn" onClick={() => handleDelete(user.id)}>Delete</button>
             </li>
           );
