@@ -38,29 +38,61 @@ function App() {
 
   return (
     <>
-      <form className="container__form" ref={form} onSubmit={handleSubmit} action="">
-        <div className="form-wrapper">
-          <label className="form-label" htmlFor="">Name:</label>
-          <input className="form-input" type="text" ref={name} />
+      <form
+        className="bg-white px-6 py-8 shadow-lg ring-gray-900/5 max-w-[400px] mx-auto card card-body"
+        ref={form}
+        onSubmit={handleSubmit}
+      >
+        <div>
+          <label className="block">Name:</label>
+          <input
+            className="input input-border focus:outline-none focus:border-blue-500 shadow-blue-500 focus:shadow-lg focus:shadow-blue-400/50 rounded"
+            type="text"
+            ref={name}
+          />
         </div>
-        <div className="form-wrapper">
-          <label className="form-label" htmlFor="">Email:</label>
-          <input className="form-input" type="email" ref={email} />
+        <div>
+          <label className="block">Email:</label>
+          <input
+            className="input input-border focus:outline-none focus:border-blue-500 shadow-blue-500 focus:shadow-lg focus:shadow-blue-400/50 rounded"
+            type="email"
+            ref={email}
+          />
         </div>
-        <div className="form-wrapper">
-          <label className="form-label" htmlFor="">Age:</label>
-          <input className="form-input" type="number" ref={age} />
+        <div>
+          <label className="block">Age:</label>
+          <input
+            className="input input-border focus:outline-none focus:border-blue-500 shadow-blue-500 focus:shadow-lg focus:shadow-blue-400/50 rounded"
+            type="number"
+            ref={age}
+          />
         </div>
-        <button className="add-btn">Add User</button>
+        <button className="btn btn-warning mt-5 hover:text-neutral-500 ml-auto mr-auto w-[120px]">
+          Add User
+        </button>
       </form>
-      <ul user-list>
+      <ul className="grid grid-cols-3 gap-14 px-20 py-10">
         {users.map((user) => {
           return (
-            <li className="user-item" key={user.id}>
-              <h3 className="user-name">{user.name}</h3>
-              <p className="user-email">{user.email}</p>
-              <p className="user-age my-1">{user.age} age</p>
-              <button className="delete-btn" onClick={() => handleDelete(user.id)}>Delete</button>
+            <li
+              className="card card-body shadow-lg hover:shadow-2xl hover:transition px-10 py-10"
+              key={user.id}
+            >
+              <h3 className="card-title text-2xl card-actions justify-center">
+                {user.name}
+              </h3>
+              <p className="my-3 text-gray-500 card-actions justify-center">
+                {user.email}
+              </p>
+              <p className="my-1 text-neutral-600 text-[18px] card-actions justify-center">
+                {user.age} age
+              </p>
+              <button
+                className="btn btn-secondary w-[100px] ml-auto mr-auto hover:text-fuchsia-800"
+                onClick={() => handleDelete(user.id)}
+              >
+                Delete
+              </button>
             </li>
           );
         })}
